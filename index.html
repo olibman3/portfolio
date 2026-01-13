@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,14 +16,12 @@
         body {
             font-family: "Geneva", "Chicago", sans-serif;
             background-color: #ffffff;
-            background-image: 
-                repeating-linear-gradient(
-                    0deg,
+            background-image:
+                repeating-linear-gradient(0deg,
                     transparent,
                     transparent 2px,
                     rgba(0, 0, 0, 0.03) 2px,
-                    rgba(0, 0, 0, 0.03) 4px
-                );
+                    rgba(0, 0, 0, 0.03) 4px);
             padding: 20px;
             min-height: 100vh;
         }
@@ -50,7 +49,7 @@
 
         .window-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            grid-template-columns: 1fr 1fr;
             gap: 30px;
             max-width: 1400px;
             margin: 0 auto;
@@ -64,18 +63,36 @@
             height: fit-content;
         }
 
-        .window:nth-child(1) { animation-delay: 0.1s; }
-        .window:nth-child(2) { animation-delay: 0.2s; }
-        .window:nth-child(3) { animation-delay: 0.3s; }
-        .window:nth-child(4) { animation-delay: 0.4s; }
-        .window:nth-child(5) { animation-delay: 0.5s; }
-        .window:nth-child(6) { animation-delay: 0.6s; }
+        .window:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+
+        .window:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .window:nth-child(3) {
+            animation-delay: 0.3s;
+        }
+
+        .window:nth-child(4) {
+            animation-delay: 0.4s;
+        }
+
+        .window:nth-child(5) {
+            animation-delay: 0.5s;
+        }
+
+        .window:nth-child(6) {
+            animation-delay: 0.6s;
+        }
 
         @keyframes windowLoad {
             from {
                 opacity: 0;
                 transform: scale(0.8) translateY(20px);
             }
+
             to {
                 opacity: 1;
                 transform: scale(1) translateY(0);
@@ -85,6 +102,23 @@
         .hero-window {
             grid-column: 1 / -1;
             margin-bottom: 20px;
+        }
+
+        .full-width-window {
+            grid-column: 1 / -1;
+            margin-bottom: 20px;
+        }
+
+        .experience-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .experience-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         .window-pane {
@@ -101,17 +135,20 @@
             font-weight: bold;
         }
 
-        .skill-list, .project-list {
+        .skill-list,
+        .project-list {
             list-style: none;
             padding: 0;
         }
 
-        .skill-list li, .project-list li {
+        .skill-list li,
+        .project-list li {
             padding: 8px 0;
             border-bottom: 1px solid #ccc;
         }
 
-        .skill-list li:last-child, .project-list li:last-child {
+        .skill-list li:last-child,
+        .project-list li:last-child {
             border-bottom: none;
         }
 
@@ -183,7 +220,7 @@
             .window-grid {
                 grid-template-columns: 1fr;
             }
-            
+
             .hero-window {
                 grid-column: 1;
             }
@@ -195,8 +232,8 @@
 
         .terminal-text {
             font-family: "Courier New", monospace;
-            font-size: 12px;
-            line-height: 1.4;
+            font-size: 13px;
+            line-height: 1.5;
         }
 
         .blink {
@@ -204,8 +241,16 @@
         }
 
         @keyframes blink {
-            0%, 49% { opacity: 1; }
-            50%, 100% { opacity: 0; }
+
+            0%,
+            49% {
+                opacity: 1;
+            }
+
+            50%,
+            100% {
+                opacity: 0;
+            }
         }
 
         .tech-badge {
@@ -246,8 +291,13 @@
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
         }
 
         .project-modal {
@@ -264,6 +314,7 @@
                 opacity: 0;
                 transform: scale(0.7) translateY(50px);
             }
+
             to {
                 opacity: 1;
                 transform: scale(1) translateY(0);
@@ -283,14 +334,12 @@
             align-items: center;
             justify-content: center;
             background: #f0f0f0;
-            background-image: 
-                repeating-linear-gradient(
-                    45deg,
+            background-image:
+                repeating-linear-gradient(45deg,
                     transparent,
                     transparent 10px,
                     rgba(0, 0, 0, 0.03) 10px,
-                    rgba(0, 0, 0, 0.03) 20px
-                );
+                    rgba(0, 0, 0, 0.03) 20px);
             min-height: 200px;
         }
 
@@ -327,11 +376,12 @@
         }
 
         .see-more-btn {
-            margin-top: 8px;
-            font-size: 11px;
+            font-size: 13px;
+            padding: 6px 16px;
         }
     </style>
 </head>
+
 <body>
     <div class="menu-bar-container">
         <ul role="menu-bar">
@@ -368,51 +418,240 @@
             <div class="window hero-window" id="about">
                 <div class="title-bar">
                     <button aria-label="Close" class="close"></button>
-                    <h1 class="title">About Me</h1>
+                    <h1 class="title"
+                        style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding-right: 40px;">
+                        About Me</h1>
                     <button aria-label="Resize" class="resize"></button>
                 </div>
                 <div class="separator"></div>
                 <div class="window-pane">
                     <p class="intro-text">
                         <strong>$ whoami</strong><br>
-                        Hello! I'm Ollie, a robotics engineer specializing in autonomous agricultural systems. 
-                        I build precision agriculture robots that achieve centimetre-level accuracy using RTK GPS, 
-                        computer vision, and advanced path planning algorithms.
+                        Hello! I'm Ollie, 4th year Engineering Mechanical & Mechatronics Student at Adelaide University.
+                        I build precision agriculture robots that aim to reduce the amount of chemical we use on our
+                        food.
                     </p>
                     <p class="intro-text">
-                        Currently developing autonomous weed-spraying systems at <strong>Flux Robotics</strong>, 
-                        where I architect RTK GPS infrastructure, implement computer vision pipelines, and create 
+                        Currently developing autonomous weed-spraying systems at <strong>Flux Robotics</strong>,
+                        where I architect RTK GPS infrastructure, implement computer vision pipelines, and create
                         intelligent navigation systems for agricultural autonomy.
                     </p>
                     <p class="intro-text">
-                        When I'm not debugging rovers, I spend my time working on my startup drone company, using computer vision to detect sharks.I also explore business automation opportunities through n8n workflows. I'm always interested in the intersection of technology, entrepreneurship and creativity.
+                        When I'm not debugging rovers, I spend my time working on my startup drone company, using
+                        computer vision to detect sharks.I also explore business automation opportunities through n8n
+                        workflows. I'm always interested in the intersection of technology, entrepreneurship and
+                        creativity.
                     </p>
                 </div>
             </div>
 
-            <!-- Current Focus Window -->
-            <div class="window">
+            <!-- Experience Window -->
+            <div class="window full-width-window" id="experience">
                 <div class="title-bar">
                     <button aria-label="Close" class="close"></button>
-                    <h1 class="title">Currently Working On</h1>
+                    <h1 class="title"
+                        style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding-right: 40px;">
+                        Experience</h1>
                     <button aria-label="Resize" disabled class="hidden"></button>
                 </div>
                 <div class="separator"></div>
-                <div class="window-pane terminal-text">
-                    <div style="margin-bottom: 10px;">
-                        > Initializing systems...<span class="blink">_</span>
+                <div class="window-pane">
+                    <div class="experience-grid">
+                        <div>
+                            <div style="font-weight: bold; margin-bottom: 5px;">
+                                <span class="status-indicator"></span><a href="https://www.fluxrobotics.ai"
+                                    target="_blank"
+                                    style="color: black; text-decoration: none; border-bottom: 1px dashed black;">Flux
+                                    Robotics</a>
+                            </div>
+                            <div style="font-size: 12px; margin-left: 14px; margin-bottom: 8px;">
+                                Mechatronics Engineer
+                            </div>
+                            <div style="font-size: 12px; margin-left: 14px; color: #333;">
+                                Leading the development of RTK GNSS base station infrastructure for autonomous
+                                agricultural robotics, delivering centimetre-level positioning to support autonomous
+                                rover operations. Developing and integrating field path generation and coverage-planning
+                                software, enabling computer vision–guided weed detection and reliable full-field
+                                autonomy. Owning base station architecture and its integration with rover autonomy
+                                systems.
+                            </div>
+                        </div>
+                        <div>
+                            <div style="font-weight: bold; margin-bottom: 5px;">
+                                <span class="status-indicator"></span><a href="https://soaraero.com.au" target="_blank"
+                                    style="color: black; text-decoration: none; border-bottom: 1px dashed black;">Soar
+                                    Aero</a>
+                            </div>
+                            <div style="font-size: 12px; margin-left: 14px; color: #333;">
+                                Led the development of an autonomous aerial shark detection system, integrating
+                                real-time computer vision with drone-based image capture to identify sharks in coastal
+                                environments. Designed and deployed the end-to-end perception pipeline, including data
+                                ingestion, model inference, and alerting outputs, with a focus on accuracy, latency, and
+                                operational reliability. Worked across hardware integration, onboard/edge processing,
+                                and field testing to deliver a practical, deployable detection platform.
+                            </div>
+                        </div>
+                        <div>
+                            <div style="font-weight: bold; margin-bottom: 5px;">
+                                <span class="status-indicator"></span>University Work
+                            </div>
+                            <div style="font-size: 12px; margin-left: 14px; color: #333;">
+                                Baja SAE suspension design, TurtleBot3 maze navigation, various robotics
+                                and mechanical engineering Projects demonstrating cross-disciplinary expertise.
+                            </div>
+                        </div>
                     </div>
-                    <div style="margin-bottom: 8px; font-size: 11px;">
-                        [ACTIVE] RTK GPS Base Station System<br>
-                        [ACTIVE] Autonomous Weed Control<br>
-                        [ACTIVE] Shark Detection Drone<br>
-                        [ACTIVE] Lead Generation Automation<br>
-                        [RESEARCH] Investment Analysis Tools<br>
-                        [EXPLORING] Web Design<br>
-                    </div>
-                    <div style="margin-top: 12px; font-size: 11px;">
-                        Status: All systems operational ✓
-                    </div>
+                </div>
+            </div>
+
+            <!-- Featured Projects -->
+            <div class="window" id="projects">
+                <div class="title-bar">
+                    <button aria-label="Close" class="close"></button>
+                    <h1 class="title"
+                        style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding-right: 40px;">
+                        Featured Projects</h1>
+                    <button aria-label="Resize" class="resize"></button>
+                </div>
+                <div class="details-bar">
+                    <span>Robotics</span>
+                    <span>Agriculture</span>
+                    <span>Automation</span>
+                </div>
+                <div class="separator"></div>
+                <div class="window-pane">
+                    <ul class="project-list">
+                        <li>
+                            <div class="project-title">RTK GPS Base Station System</div>
+                            <div class="project-desc">
+                                ESP32-S3 + F9P modules with 4G connectivity via Cloudflare tunnels.
+                                Centimetre-level positioning for autonomous agricultural vehicles.
+                            </div>
+                            <div
+                                style="margin-top: 6px; display: flex; justify-content: space-between; align-items: center;">
+                                <div>
+                                    <span class="tech-badge">ESP32</span>
+                                    <span class="tech-badge">RTK GPS</span>
+                                    <span class="tech-badge">Advanced Networking</span>
+                                </div>
+                                <button class="btn see-more-btn" onclick="openProjectModal('project1')">See
+                                    More...</button>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="project-title">Rover Path Planning</div>
+                            <div class="project-desc">
+                                Complete field coverage algorithms with obstacle avoidance. Based on any shape paddock a
+                                mission can be generated within seconds with all geometric datams taken into account.
+                            </div>
+                            <div
+                                style="margin-top: 6px; display: flex; justify-content: space-between; align-items: center;">
+                                <div>
+                                    <span class="tech-badge">Pixhawk</span>
+                                    <span class="tech-badge">Python</span>
+                                    <span class="tech-badge">Github</span>
+                                </div>
+                                <button class="btn see-more-btn" onclick="openProjectModal('project3')">See
+                                    More...</button>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="project-title">Shark Detection Drone</div>
+                            <div class="project-desc">
+                                Developed a drone-based shark detection system, combining aerial image capture with
+                                computer vision to identify sharks in coastal environments. Supported flight operations,
+                                data collection, and validation to deliver a practical, deployable detection capability.
+                            </div>
+                            <div
+                                style="margin-top: 6px; display: flex; justify-content: space-between; align-items: center;">
+                                <div>
+                                    <span class="tech-badge">Computer Vision</span>
+                                    <span class="tech-badge">Entrepreneurship</span>
+                                    <span class="tech-badge">MavLink</span>
+                                </div>
+                                <button class="btn see-more-btn" onclick="openProjectModal('project2')">See
+                                    More...</button>
+                            </div>
+                        </li>
+
+                        <li>
+                            <div class="project-title">Business Automation Suite</div>
+                            <div class="project-desc">
+                                n8n workflows for lead generation, real estate follow-ups, and
+                                contractor website services. Automated cold email campaigns, integrating AI into private
+                                databases offline
+                            </div>
+                            <div
+                                style="margin-top: 6px; display: flex; justify-content: space-between; align-items: center;">
+                                <div>
+                                    <span class="tech-badge">n8n</span>
+                                    <span class="tech-badge">APIs</span>
+                                    <span class="tech-badge">Docker</span>
+                                    <span class="tech-badge">Clients</span>
+                                </div>
+                                <button class="btn see-more-btn" onclick="openProjectModal('project4')">See
+                                    More...</button>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Technical Skills Window -->
+            <div class="window" id="skills">
+                <div class="title-bar">
+                    <button aria-label="Close" class="close"></button>
+                    <h1 class="title"
+                        style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding-right: 40px;">
+                        Technical Stack</h1>
+                    <button aria-label="Resize" class="resize"></button>
+                </div>
+                <div class="separator"></div>
+                <div class="window-pane">
+                    <ul class="skill-list">
+                        <li>
+                            <strong>Robotics & Autonomous Navigation</strong><br>
+                            <span style="font-size: 12px;">
+                                ROS 1 (ROS nodes, ROSPy), Pixhawk & ArduPilot, MAVLink, Path Planning, SLAM,
+                                GNSS-based navigation, Sensor fusion
+                            </span>
+                        </li>
+                        <li>
+                            <strong>Precision Agriculture & GNSS</strong><br>
+                            <span style="font-size: 12px;">
+                                RTK GNSS, NTRIP (Client & Base Station), Moving Baseline Systems,
+                                Autonomous Rover Navigation, Field Boundary Mapping
+                            </span>
+                        </li>
+                        <li>
+                            <strong>Computer Vision & Perception</strong><br>
+                            <span style="font-size: 12px;">
+                                YOLO (real-time inference), SAM2 / SAM3, OpenCV, GStreamer,
+                                Dataset Labelling & Validation (CVAT)
+                            </span>
+                        </li>
+                        <li>
+                            <strong>Embedded & Edge Computing</strong><br>
+                            <span style="font-size: 12px;">
+                                ESP32, NVIDIA Jetson, Raspberry Pi, Sensor & Actuator Integration,
+                                Low-level C++ and Python on Linux
+                            </span>
+                        </li>
+                        <li>
+                            <strong>Software Engineering & DevOps</strong><br>
+                            <span style="font-size: 12px;">
+                                Python, C++, Docker, Git, Linux Systems, Networking,
+                                Cloudflare-based Deployment & Services
+                            </span>
+                        </li>
+                        <li>
+                            <strong>Automation, Integration & Applied Systems</strong><br>
+                            <span style="font-size: 12px;">
+                                n8n Automation, API Integration, Data Pipelines,
+                                End-to-End System Prototyping and Deployment
+                            </span>
+                        </li>
+                    </ul>
                 </div>
             </div>
 
@@ -420,7 +659,9 @@
             <div class="window" id="contact">
                 <div class="title-bar">
                     <button aria-label="Close" class="close"></button>
-                    <h1 class="title">Get In Touch</h1>
+                    <h1 class="title"
+                        style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding-right: 40px;">Get
+                        In Touch</h1>
                     <button aria-label="Resize" disabled class="hidden"></button>
                 </div>
                 <div class="separator"></div>
@@ -439,7 +680,8 @@
                         </div>
                         <div class="contact-item">
                             <div class="contact-icon"></div>
-                            <a href="https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://au.linkedin.com/in/ollie-beadman-2b05b8220&ved=2ahUKEwiH65vewIeSAxUXTmwGHfMWCY8QFnoECBwQAQ&usg=AOvVaw35_iygiFzYgnWlen752yv6" target="_blank">LinkedIn</a>
+                            <a href="https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://au.linkedin.com/in/ollie-beadman-2b05b8220&ved=2ahUKEwiH65vewIeSAxUXTmwGHfMWCY8QFnoECBwQAQ&usg=AOvVaw35_iygiFzYgnWlen752yv6"
+                                target="_blank">LinkedIn</a>
                         </div>
                         <div style="margin-top: 20px;">
                             <button class="btn btn-default" style="width: 100%;">Download Resume (coming soon)</button>
@@ -448,181 +690,33 @@
                 </div>
             </div>
 
-            <!-- Projects Window -->
-            <div class="window" id="projects">
+            <!-- Current Focus Window -->
+            <div class="window">
                 <div class="title-bar">
                     <button aria-label="Close" class="close"></button>
-                    <h1 class="title">Featured Projects</h1>
-                    <button aria-label="Resize" class="resize"></button>
-                </div>
-                <div class="details-bar">
-                    <span>Robotics</span>
-                    <span>Agriculture</span>
-                    <span>Automation</span>
-                </div>
-                <div class="separator"></div>
-                <div class="window-pane">
-                    <ul class="project-list">
-                        <li>
-                            <div class="project-title">RTK GPS Base Station System</div>
-                            <div class="project-desc">
-                                ESP32-S3 + F9P modules with 4G connectivity via Cloudflare tunnels. 
-                                Centimetre-level positioning for autonomous agricultural vehicles.
-                            </div>
-                            <div style="margin-top: 6px;">
-                                <span class="tech-badge">ESP32</span>
-                                <span class="tech-badge">RTK GPS</span>
-                                <span class="tech-badge">Advanced Networking</span>
-                            </div>
-                            <button class="btn see-more-btn" onclick="openProjectModal('project1')">See More...</button>
-                        </li>
-                        <li>
-                            <div class="project-title">Rover Path Planning</div>
-                            <div class="project-desc">
-                                Complete field coverage algorithms with obstacle avoidance. Based on any shape paddock a mission can be generated within seconds with all geometric datams taken into account.
-                            </div>
-                            <div style="margin-top: 6px;">
-                                <span class="tech-badge">Pixhawk</span>
-                                <span class="tech-badge">Python</span>
-                                <span class="tech-badge">Github</span>
-                            </div>
-                            <button class="btn see-more-btn" onclick="openProjectModal('project3')">See More...</button>
-                        </li>
-                        <li>
-                            <div class="project-title">Shark Detection Drone</div>
-                            <div class="project-desc">
-                                Developed a drone-based shark detection system, combining aerial image capture with computer vision to identify sharks in coastal environments. Supported flight operations, data collection, and validation to deliver a practical, deployable detection capability.
-                            </div>
-                            <div style="margin-top: 6px;">
-                                <span class="tech-badge">Computer Vision</span>
-                                <span class="tech-badge">Entrepreneurship</span>
-                                <span class="tech-badge">MavLink</span>
-                            </div>
-                            <button class="btn see-more-btn" onclick="openProjectModal('project2')">See More...</button>
-                        </li>
-                        
-                        <li>
-                            <div class="project-title">Business Automation Suite</div>
-                            <div class="project-desc">
-                                n8n workflows for lead generation, real estate follow-ups, and 
-                                contractor website services. Automated cold email campaigns, integrating AI into private databases offline
-                            </div>
-                            <div style="margin-top: 6px;">
-                                <span class="tech-badge">n8n</span>
-                                <span class="tech-badge">APIs</span>
-                                <span class="tech-badge">Docker</span>
-                                <span class="tech-badge">Clients</span>
-                            </div>
-                            <button class="btn see-more-btn" onclick="openProjectModal('project4')">See More...</button>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Technical Skills Window -->
-            <div class="window" id="skills">
-                <div class="title-bar">
-                    <button aria-label="Close" class="close"></button>
-                    <h1 class="title">Technical Stack</h1>
-                    <button aria-label="Resize" class="resize"></button>
-                </div>
-                <div class="separator"></div>
-                <div class="window-pane">
-                    <ul class="skill-list">
-                   <li>
-    <strong>Robotics & Autonomous Navigation</strong><br>
-    <span style="font-size: 12px;">
-        ROS 1 (ROS nodes, ROSPy), Pixhawk & ArduPilot, MAVLink, Path Planning, SLAM,
-        GNSS-based navigation, Sensor fusion
-    </span>
-</li>
-
-<li>
-    <strong>Precision Agriculture & GNSS</strong><br>
-    <span style="font-size: 12px;">
-        RTK GNSS, NTRIP (Client & Base Station), Moving Baseline Systems,
-        Autonomous Rover Navigation, Field Boundary Mapping
-    </span>
-</li>
-
-<li>
-    <strong>Computer Vision & Perception</strong><br>
-    <span style="font-size: 12px;">
-        YOLO (real-time inference), SAM2 / SAM3, OpenCV, GStreamer,
-        Dataset Labelling & Validation (CVAT)
-    </span>
-</li>
-
-<li>
-    <strong>Embedded & Edge Computing</strong><br>
-    <span style="font-size: 12px;">
-        ESP32, NVIDIA Jetson, Raspberry Pi, Sensor & Actuator Integration,
-        Low-level C++ and Python on Linux
-    </span>
-</li>
-
-<li>
-    <strong>Software Engineering & DevOps</strong><br>
-    <span style="font-size: 12px;">
-        Python, C++, Docker, Git, Linux Systems, Networking,
-        Cloudflare-based Deployment & Services
-    </span>
-</li>
-
-<li>
-    <strong>Automation, Integration & Applied Systems</strong><br>
-    <span style="font-size: 12px;">
-        n8n Automation, API Integration, Data Pipelines,
-        End-to-End System Prototyping and Deployment
-    </span>
-</li>
-
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Experience Window -->
-            <div class="window" id="experience">
-                <div class="title-bar">
-                    <button aria-label="Close" class="close"></button>
-                    <h1 class="title">Experience</h1>
+                    <h1 class="title"
+                        style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding-right: 40px;">
+                        Currently Working On</h1>
                     <button aria-label="Resize" disabled class="hidden"></button>
                 </div>
                 <div class="separator"></div>
-                <div class="window-pane">
-                    <div style="margin-bottom: 20px;">
-                        <div style="font-weight: bold; margin-bottom: 5px;">
-                            <span class="status-indicator"></span>Flux Robotics
-                        </div>
-                        <div style="font-size: 12px; margin-left: 14px; margin-bottom: 8px;">
-                            Mechatronics Engineer
-                        </div>
-                        <div style="font-size: 12px; margin-left: 14px; color: #333;">
-                           Leading the development of RTK GNSS base station infrastructure for autonomous agricultural robotics, delivering centimetre-level positioning to support autonomous rover operations. Developing and integrating field path generation and coverage-planning software, enabling computer vision–guided weed detection and reliable full-field autonomy. Owning base station architecture and its integration with rover autonomy systems.
-                        </div>
+                <div class="window-pane terminal-text">
+                    <div style="margin-bottom: 10px;">
+                        > Initializing systems...<span class="blink">_</span>
                     </div>
-                    <div style="margin-bottom: 20px;">
-                        <div style="font-weight: bold; margin-bottom: 5px;">
-                            <span class="status-indicator"></span>Soar Aero
-                        </div>
-                        <div style="font-size: 12px; margin-left: 14px; color: #333;">
-                            Led the development of an autonomous aerial shark detection system, integrating real-time computer vision with drone-based image capture to identify sharks in coastal environments. Designed and deployed the end-to-end perception pipeline, including data ingestion, model inference, and alerting outputs, with a focus on accuracy, latency, and operational reliability. Worked across hardware integration, onboard/edge processing, and field testing to deliver a practical, deployable detection platform.
-                        </div>
+                    <div style="margin-bottom: 8px;">
+                        [ACTIVE] RTK GPS Base Station System<br>
+                        [ACTIVE] Autonomous Weed Control<br>
+                        [ACTIVE] Shark Detection Drone<br>
+                        [ACTIVE] Lead Generation Automation<br>
+                        [RESEARCH] Investment Analysis Tools<br>
+                        [EXPLORING] Web Design<br>
                     </div>
-                    <div>
-                        <div style="font-weight: bold; margin-bottom: 5px;">
-                            <span class="status-indicator"></span>University Work
-                        </div>
-                        <div style="font-size: 12px; margin-left: 14px; color: #333;">
-                            Baja SAE suspension design, TurtleBot3 maze navigation, various robotics 
-                            and mechanical engineering Projects demonstrating cross-disciplinary expertise.
-                        </div>
+                    <div style="margin-top: 12px;">
+                        Status: All systems operational ✓
                     </div>
                 </div>
             </div>
-
-
 
             <!-- Footer -->
             <div class="window footer-window">
@@ -654,22 +748,37 @@
                     <!-- Replace with actual image -->
                     <img src="images/base.jpg" alt="RTK GPS Base Station">
                 </div>
-                
+
                 <div class="project-detail-text">
-                    This project focuses on the design and evolution of a high-precision RTK GNSS base station for autonomous agricultural robotics. Development began on a Raspberry Pi–based prototype using u-blox F9P GNSS receivers to validate correction accuracy, reliability, and end-to-end data flow. As the system matured, the architecture transitioned toward a dedicated embedded platform, exploring ESP32-S3–based implementations to improve reliability, power efficiency, and deployability in field environments.
+                    This project focuses on the design and evolution of a high-precision RTK GNSS base station for
+                    autonomous agricultural robotics. Development began on a Raspberry Pi–based prototype using u-blox
+                    F9P GNSS receivers to validate correction accuracy, reliability, and end-to-end data flow. As the
+                    system matured, the architecture transitioned toward a dedicated embedded platform, exploring
+                    ESP32-S3–based implementations to improve reliability, power efficiency, and deployability in field
+                    environments.
                 </div>
 
                 <div class="project-detail-text">
-                  The base station delivers centimetre-level positioning across large agricultural areas, providing RTK corrections to autonomous rovers for accurate navigation and repeatable field operations. Real-time correction data is distributed over 4G cellular connectivity using NTRIP, with Cloudflare tunnels used to securely expose services without reliance on traditional radio links or line-of-sight constraints. 
+                    The base station delivers centimetre-level positioning across large agricultural areas, providing
+                    RTK corrections to autonomous rovers for accurate navigation and repeatable field operations.
+                    Real-time correction data is distributed over 4G cellular connectivity using NTRIP, with Cloudflare
+                    tunnels used to securely expose services without reliance on traditional radio links or
+                    line-of-sight constraints.
                 </div>
 
                 <div class="project-detail-text">
-                    Key technical work includes custom firmware and software to manage RTCM3 correction streams, NTRIP client and server workflows, and robust monitoring for continuous operation. Ongoing development is focused on migrating core functionality from the Raspberry Pi to ESP32-based hardware, reducing system complexity while maintaining accuracy, uptime, and scalability across multiple rovers and deployments.
+                    Key technical work includes custom firmware and software to manage RTCM3 correction streams, NTRIP
+                    client and server workflows, and robust monitoring for continuous operation. Ongoing development is
+                    focused on migrating core functionality from the Raspberry Pi to ESP32-based hardware, reducing
+                    system complexity while maintaining accuracy, uptime, and scalability across multiple rovers and
+                    deployments.
                 </div>
 
                 <div class="project-meta">
-                    <div class="project-meta-item"><strong>Technologies:</strong> Raspberry Pi, ESP32-S3, u-blox F9P, RTCM3, NTRIP, Cloudflare Tunnels, 4G LTE</div>
-                    <div class="project-meta-item"><strong>Focus:</strong> RTK base station architecture, correction distribution, embedded systems migration </div>
+                    <div class="project-meta-item"><strong>Technologies:</strong> Raspberry Pi, ESP32-S3, u-blox F9P,
+                        RTCM3, NTRIP, Cloudflare Tunnels, 4G LTE</div>
+                    <div class="project-meta-item"><strong>Focus:</strong> RTK base station architecture, correction
+                        distribution, embedded systems migration </div>
                     <div class="project-meta-item"><strong>Status:</strong> Production deployment at Flux Robotics</div>
                 </div>
             </div>
@@ -685,29 +794,42 @@
             </div>
             <div class="separator"></div>
             <div class="modal-window-pane">
-                <div class="project-image placeholder">
-                    [Image coming soon - Path Planning Visualization]
-                </div>
-                
-                <div class="project-detail-text">
-                           A comprehensive autonomous path planning system for precision agriculture that evolved from a basic Python waypoint generator into a production-grade navigation solution through iterative engineering and extensive field validation. The system orchestrates complex coordinate transformations, optimal coverage algorithms, and real-time GPS correction to achieve centimetre-level precision across multi-acre agricultural operations.
-
+                <div class="project-image">
+                    <img src="images/path_gen.jpg" alt="Path Planning Visualization">
                 </div>
 
                 <div class="project-detail-text">
-                        The architecture implements the Fields2Cover library for advanced coverage path planning, incorporating algorithms for headland generation, turn sequence minimization, and complete field decomposition. Custom coordinate transformation pipelines handle multiple reference frames (WGS84, UTM, local grid) while managing RTK GPS correction streams via NTRIP protocol for consistent sub-cm positioning accuracy. The system intelligently generates spray patterns that account for implement width, overlap requirements, field boundaries, and obstacle avoidance zones.
+                    A comprehensive autonomous path planning system for precision agriculture that evolved from a basic
+                    Python waypoint generator into a production-grade navigation solution through iterative engineering
+                    and extensive field validation. The system orchestrates complex coordinate transformations, optimal
+                    coverage algorithms, and real-time GPS correction to achieve centimetre-level precision across
+                    multi-acre agricultural operations.
 
                 </div>
 
                 <div class="project-detail-text">
-                            Integration with MAVLink/Pixhawk autopilots required solving significant technical challenges including waypoint count limitations (developed custom Lua scripting solutions for 400+ waypoint missions), mission upload optimization, and real-time path following with dynamic speed adjustment. 
-                            Through rigorous field testing across diverse agricultural scenarios, the system has demonstrated exceptional reliability and performance. 
+                    The architecture implements the Fields2Cover library for advanced coverage path planning,
+                    incorporating algorithms for headland generation, turn sequence minimization, and complete field
+                    decomposition. Custom coordinate transformation pipelines handle multiple reference frames (WGS84,
+                    UTM, local grid) while managing RTK GPS correction streams via NTRIP protocol for consistent sub-cm
+                    positioning accuracy. The system intelligently generates spray patterns that account for implement
+                    width, overlap requirements, field boundaries, and obstacle avoidance zones.
+
+                </div>
+
+                <div class="project-detail-text">
+                    Integration with MAVLink/Pixhawk autopilots required solving significant technical challenges
+                    including waypoint count limitations (developed custom Lua scripting solutions for 400+ waypoint
+                    missions), mission upload optimization, and real-time path following with dynamic speed adjustment.
+                    Through rigorous field testing across diverse agricultural scenarios, the system has demonstrated
+                    exceptional reliability and performance.
 
 
                 </div>
 
                 <div class="project-meta">
-                    <div class="project-meta-item"><strong>Technologies:</strong>Fields2Cover, Docker, Python, Mavlink, Tailscale</div>
+                    <div class="project-meta-item"><strong>Technologies:</strong>Fields2Cover, Docker, Python, Mavlink,
+                        Tailscale</div>
                     <div class="project-meta-item"><strong>Impact:</strong>Rover Saftey, Rover automation</div>
                     <div class="project-meta-item"><strong>Status:</strong> Active development and field testing</div>
                 </div>
@@ -716,38 +838,47 @@
     </div>
 
     <div class="modal-overlay" id="project2-modal">
-    <div class="window project-modal">
-        <div class="title-bar">
-            <button aria-label="Close" class="close" onclick="closeProjectModal('project2')"></button>
-            <h1 class="title">Shark Detection Drone</h1>
-            <button aria-label="Resize" disabled class="hidden"></button>
-        </div>
-        <div class="separator"></div>
-        <div class="modal-window-pane">
-            <div class="project-image">
-                <img src="images/shark.jpg" alt="Shark Detection Drone">
+        <div class="window project-modal">
+            <div class="title-bar">
+                <button aria-label="Close" class="close" onclick="closeProjectModal('project2')"></button>
+                <h1 class="title">Shark Detection Drone</h1>
+                <button aria-label="Resize" disabled class="hidden"></button>
             </div>
-            
-            <div class="project-detail-text">
-                Developed an autonomous aerial drone system for shark detection, integrating high-resolution imagery capture with real-time computer vision to identify sharks in coastal waters. The system provides accurate, timely detection to improve safety and monitoring operations.
-            </div>
+            <div class="separator"></div>
+            <div class="modal-window-pane">
+                <div class="project-image">
+                    <img src="images/shark.jpg" alt="Shark Detection Drone">
+                </div>
 
-            <div class="project-detail-text">
-                The solution combines onboard processing for real-time inference with automated flight mission planning, enabling the drone to cover large coastal areas efficiently. Data collection, image analysis, and detection alerts are streamlined to support practical deployment in field conditions.
-            </div>
+                <div class="project-detail-text">
+                    Developed an autonomous aerial drone system for shark detection, integrating high-resolution imagery
+                    capture with real-time computer vision to identify sharks in coastal waters. The system provides
+                    accurate, timely detection to improve safety and monitoring operations.
+                </div>
 
-            <div class="project-detail-text">
-                Key technical contributions include designing the perception pipeline, integrating flight control with computer vision models, and validating system performance in real-world coastal environments. The project demonstrates a complete end-to-end autonomous solution from aerial data capture to actionable detection output.
-            </div>
+                <div class="project-detail-text">
+                    The solution combines onboard processing for real-time inference with automated flight mission
+                    planning, enabling the drone to cover large coastal areas efficiently. Data collection, image
+                    analysis, and detection alerts are streamlined to support practical deployment in field conditions.
+                </div>
 
-            <div class="project-meta">
-                <div class="project-meta-item"><strong>Technologies:</strong> UAVs, Python, OpenCV, YOLO, GStreamer, MAVLink, Autonomous Flight</div>
-                <div class="project-meta-item"><strong>Impact:</strong> Enabled real-time shark detection and monitoring across extensive coastal regions</div>
-                <div class="project-meta-item"><strong>Status:</strong>Prototype</div>
+                <div class="project-detail-text">
+                    Key technical contributions include designing the perception pipeline, integrating flight control
+                    with computer vision models, and validating system performance in real-world coastal environments.
+                    The project demonstrates a complete end-to-end autonomous solution from aerial data capture to
+                    actionable detection output.
+                </div>
+
+                <div class="project-meta">
+                    <div class="project-meta-item"><strong>Technologies:</strong> UAVs, Python, OpenCV, YOLO, GStreamer,
+                        MAVLink, Autonomous Flight</div>
+                    <div class="project-meta-item"><strong>Impact:</strong> Enabled real-time shark detection and
+                        monitoring across extensive coastal regions</div>
+                    <div class="project-meta-item"><strong>Status:</strong>Prototype</div>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
 
     <div class="modal-overlay" id="project4-modal">
@@ -762,29 +893,40 @@
                 <div class="project-image">
                     <img src="images/n8n.jpg" alt="n8n Automation">
                 </div>
-                
+
                 <div class="project-detail-text">
-                    A business automation platform built on n8n workflow automation, designed to streamline lead generation, customer engagement, and service delivery for contractor website services. The system automates the entire pipeline from prospect identification through proposal delivery and follow-up.
+                    A business automation platform built on n8n workflow automation, designed to streamline lead
+                    generation, customer engagement, and service delivery for contractor website services. The system
+                    automates the entire pipeline from prospect identification through proposal delivery and follow-up.
                 </div>
 
                 <div class="project-detail-text">
-                    One systems core functionality includes Google Maps API integration for scraping local contractor data, automated lead qualification and enrichment, personalized SMS campaigns with dynamic content generation using Ollama LLM, and intelligent follow-up sequences. Working with a real estate company, I developed a similar system that would write personalised emails to leads.
+                    One systems core functionality includes Google Maps API integration for scraping local contractor
+                    data, automated lead qualification and enrichment, personalized SMS campaigns with dynamic content
+                    generation using Ollama LLM, and intelligent follow-up sequences. Working with a real estate
+                    company, I developed a similar system that would write personalised emails to leads.
                 </div>
 
                 <div class="project-detail-text">
-                    Technical infrastructure leverages Docker for containerized deployment, webhook-based integrations with multiple services, and custom API bridges for data flow between systems. The platform includes monitoring dashboards, Automated SMS platforms, Google API's, running models locally and automated reporting on campaign performance.
+                    Technical infrastructure leverages Docker for containerized deployment, webhook-based integrations
+                    with multiple services, and custom API bridges for data flow between systems. The platform includes
+                    monitoring dashboards, Automated SMS platforms, Google API's, running models locally and automated
+                    reporting on campaign performance.
                 </div>
 
                 <div class="project-meta">
-                    <div class="project-meta-item"><strong>Technologies:</strong> n8n, Docker, Google Maps API, Ollama, Gmail API, Various CRM integrations</div>
-                    <div class="project-meta-item"><strong>Impact:</strong> Automated lead generation processing, saving business owners time</div>
+                    <div class="project-meta-item"><strong>Technologies:</strong> n8n, Docker, Google Maps API, Ollama,
+                        Gmail API, Various CRM integrations</div>
+                    <div class="project-meta-item"><strong>Impact:</strong> Automated lead generation processing, saving
+                        business owners time</div>
                     <div class="project-meta-item"><strong>Status:</strong> Active development and optimization</div>
                 </div>
             </div>
         </div>
     </div>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+    <script>
         // Modal functions
         function openProjectModal(projectId) {
             const modal = document.getElementById(projectId + '-modal');
@@ -804,7 +946,7 @@
 
         // Close modal when clicking outside the window
         document.querySelectorAll('.modal-overlay').forEach(overlay => {
-            overlay.addEventListener('click', function(e) {
+            overlay.addEventListener('click', function (e) {
                 if (e.target === this) {
                     this.classList.remove('active');
                     document.body.style.overflow = '';
@@ -813,7 +955,7 @@
         });
 
         // Close modal with Escape key
-        document.addEventListener('keydown', function(e) {
+        document.addEventListener('keydown', function (e) {
             if (e.key === 'Escape') {
                 document.querySelectorAll('.modal-overlay.active').forEach(modal => {
                     modal.classList.remove('active');
@@ -838,13 +980,14 @@
 
         // Add hover effect to buttons
         document.querySelectorAll('.btn').forEach(button => {
-            button.addEventListener('mousedown', function() {
+            button.addEventListener('mousedown', function () {
                 this.style.transform = 'scale(0.95)';
             });
-            button.addEventListener('mouseup', function() {
+            button.addEventListener('mouseup', function () {
                 this.style.transform = 'scale(1)';
             });
         });
     </script>
 </body>
+
 </html>
