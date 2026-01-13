@@ -278,15 +278,11 @@
 
         .project-image {
             width: 100%;
-            height: 200px;
-            background: #f0f0f0;
-            border: 2px solid black;
             margin-bottom: 15px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 12px;
-            color: #666;
+            background: #f0f0f0;
             background-image: 
                 repeating-linear-gradient(
                     45deg,
@@ -295,12 +291,22 @@
                     rgba(0, 0, 0, 0.03) 10px,
                     rgba(0, 0, 0, 0.03) 20px
                 );
+            min-height: 200px;
         }
 
         .project-image img {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain;
+            width: 100%;
+            height: auto;
+            border: 2px solid black;
+            display: block;
+            background: white;
+        }
+
+        .project-image.placeholder {
+            height: 300px;
+            border: 2px solid black;
+            font-size: 12px;
+            color: #666;
         }
 
         .project-detail-text {
@@ -599,7 +605,7 @@
                         </p>
                         <div class="contact-item">
                             <div class="contact-icon"></div>
-                            <a href="mailto:olibman3@gmail.com">olibman3@gmail.com</a>
+                            <a href="/cdn-cgi/l/email-protection#197675707b7478772a597e74787075377a7674"><span class="__cf_email__" data-cfemail="523d3e3b303f333c6112353f333b3e7c313d3f">[email&#160;protected]</span></a>
                         </div>
                         <div class="contact-item">
                             <div class="contact-icon"></div>
@@ -677,8 +683,8 @@
             </div>
             <div class="separator"></div>
             <div class="modal-window-pane">
-                <div class="project-image">
-                    <img src="https://via.placeholder.com/560x200/f0f0f0/666?text=Computer+Vision+System" alt="Weed Detection System">
+                <div class="project-image placeholder">
+                    [Image coming soon - Path Planning Visualization]
                 </div>
                 
                 <div class="project-detail-text">
@@ -760,7 +766,7 @@
                 </div>
 
                 <div class="project-detail-text">
-                    One systems core functionality includes Google Maps API integration for scraping local contractor data, automated lead qualification and enrichment, personalized SMS campaigns with dynamic content generation using Ollama LLM, and intelligent follow-up sequences. Working with a real estate company, i developed a similar system that would write personalised emails to leads.
+                    One systems core functionality includes Google Maps API integration for scraping local contractor data, automated lead qualification and enrichment, personalized SMS campaigns with dynamic content generation using Ollama LLM, and intelligent follow-up sequences. Working with a real estate company, I developed a similar system that would write personalised emails to leads.
                 </div>
 
                 <div class="project-detail-text">
@@ -776,7 +782,7 @@
         </div>
     </div>
 
-    <script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         // Modal functions
         function openProjectModal(projectId) {
             const modal = document.getElementById(projectId + '-modal');
@@ -830,13 +836,4 @@
 
         // Add hover effect to buttons
         document.querySelectorAll('.btn').forEach(button => {
-            button.addEventListener('mousedown', function() {
-                this.style.transform = 'scale(0.95)';
-            });
-            button.addEventListener('mouseup', function() {
-                this.style.transform = 'scale(1)';
-            });
-        });
-    </script>
-</body>
-</html>
+            button.addEventListener('mousedown', function()
