@@ -390,6 +390,64 @@
                 </div>
             </div>
 
+            <!-- Current Focus Window -->
+            <div class="window">
+                <div class="title-bar">
+                    <button aria-label="Close" class="close"></button>
+                    <h1 class="title">Currently Working On</h1>
+                    <button aria-label="Resize" disabled class="hidden"></button>
+                </div>
+                <div class="separator"></div>
+                <div class="window-pane terminal-text">
+                    <div style="margin-bottom: 10px;">
+                        > Initializing systems...<span class="blink">_</span>
+                    </div>
+                    <div style="margin-bottom: 8px; font-size: 11px;">
+                        [ACTIVE] RTK GPS Base Station System<br>
+                        [ACTIVE] Autonomous Weed Control<br>
+                        [ACTIVE] Shark Detection Drone<br>
+                        [ACTIVE] Lead Generation Automation<br>
+                        [RESEARCH] Investment Analysis Tools<br>
+                        [EXPLORING] Web Design<br>
+                    </div>
+                    <div style="margin-top: 12px; font-size: 11px;">
+                        Status: All systems operational ✓
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Window -->
+            <div class="window" id="contact">
+                <div class="title-bar">
+                    <button aria-label="Close" class="close"></button>
+                    <h1 class="title">Get In Touch</h1>
+                    <button aria-label="Resize" disabled class="hidden"></button>
+                </div>
+                <div class="separator"></div>
+                <div class="modeless-dialog">
+                    <div style="padding: 20px;">
+                        <p style="margin-bottom: 15px; font-size: 13px;">
+                            Interested in robotics, automation, or collaboration? Let's connect.
+                        </p>
+                        <div class="contact-item">
+                            <div class="contact-icon"></div>
+                            <a href="mailto:olibman3@gmail.com">olibman3@gmail.com</a>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon"></div>
+                            <a href="https://github.com/olibman3" target="_blank">GitHub Profile</a>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon"></div>
+                            <a href="https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://au.linkedin.com/in/ollie-beadman-2b05b8220&ved=2ahUKEwiH65vewIeSAxUXTmwGHfMWCY8QFnoECBwQAQ&usg=AOvVaw35_iygiFzYgnWlen752yv6" target="_blank">LinkedIn</a>
+                        </div>
+                        <div style="margin-top: 20px;">
+                            <button class="btn btn-default" style="width: 100%;">Download Resume (coming soon)</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <!-- Projects Window -->
             <div class="window" id="projects">
                 <div class="title-bar">
@@ -564,63 +622,7 @@
                 </div>
             </div>
 
-            <!-- Current Focus Window -->
-            <div class="window">
-                <div class="title-bar">
-                    <button aria-label="Close" class="close"></button>
-                    <h1 class="title">Currently Working On</h1>
-                    <button aria-label="Resize" disabled class="hidden"></button>
-                </div>
-                <div class="separator"></div>
-                <div class="window-pane terminal-text">
-                    <div style="margin-bottom: 10px;">
-                        > Initializing systems...<span class="blink">_</span>
-                    </div>
-                    <div style="margin-bottom: 8px; font-size: 11px;">
-                        [ACTIVE] RTK GPS Base Station System<br>
-                        [ACTIVE] Autonomous Weed Control<br>
-                        [ACTIVE] Shark Detection Drone<br>
-                        [ACTIVE] Lead Generation Automation<br>
-                        [RESEARCH] Investment Analysis Tools<br>
-                        [EXPLORING] Website Design<br>
-                    </div>
-                    <div style="margin-top: 12px; font-size: 11px;">
-                        Status: All systems operational ✓
-                    </div>
-                </div>
-            </div>
 
-            <!-- Contact Window -->
-            <div class="window" id="contact">
-                <div class="title-bar">
-                    <button aria-label="Close" class="close"></button>
-                    <h1 class="title">Get In Touch</h1>
-                    <button aria-label="Resize" disabled class="hidden"></button>
-                </div>
-                <div class="separator"></div>
-                <div class="modeless-dialog">
-                    <div style="padding: 20px;">
-                        <p style="margin-bottom: 15px; font-size: 13px;">
-                            Interested in robotics, automation, or collaboration? Let's connect.
-                        </p>
-                        <div class="contact-item">
-                            <div class="contact-icon"></div>
-                            <a href="/cdn-cgi/l/email-protection#197675707b7478772a597e74787075377a7674"><span class="__cf_email__" data-cfemail="523d3e3b303f333c6112353f333b3e7c313d3f">[email&#160;protected]</span></a>
-                        </div>
-                        <div class="contact-item">
-                            <div class="contact-icon"></div>
-                            <a href="https://github.com/olibman3" target="_blank">GitHub Profile</a>
-                        </div>
-                        <div class="contact-item">
-                            <div class="contact-icon"></div>
-                            <a href="https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://au.linkedin.com/in/ollie-beadman-2b05b8220&ved=2ahUKEwiH65vewIeSAxUXTmwGHfMWCY8QFnoECBwQAQ&usg=AOvVaw35_iygiFzYgnWlen752yv6" target="_blank">LinkedIn</a>
-                        </div>
-                        <div style="margin-top: 20px;">
-                            <button class="btn btn-default" style="width: 100%;">Download Resume (coming soon)</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
             <!-- Footer -->
             <div class="window footer-window">
@@ -836,4 +838,13 @@
 
         // Add hover effect to buttons
         document.querySelectorAll('.btn').forEach(button => {
-            button.addEventListener('mousedown', function()
+            button.addEventListener('mousedown', function() {
+                this.style.transform = 'scale(0.95)';
+            });
+            button.addEventListener('mouseup', function() {
+                this.style.transform = 'scale(1)';
+            });
+        });
+    </script>
+</body>
+</html>
